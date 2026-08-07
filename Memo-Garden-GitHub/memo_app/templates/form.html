@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新しいメモ | Memo Garden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/list"><span class="brand-mark">✦</span>Memo Garden</a>
+        <nav class="site-nav"><a class="active" href="/">新規メモ</a><a href="/list">一覧</a><a href="/list#ai-settings">AI設定</a></nav>
+    </header>
+    <main class="page page-narrow">
+        <div class="page-heading"><p class="eyebrow">New note</p><h1>思いつきを、残そう。</h1><p class="page-subtitle">予定やアイデアを、あとで見返せる一枚のメモに。</p></div>
+        <form class="panel" action="/" method="POST" id="memo-form">
+            <div class="field"><div class="label-row"><label for="title">タイトル</label><button class="text-clear" type="button" data-clear-target="title">クリア</button></div><input type="text" id="title" name="title" required placeholder="例：週末にやること"></div>
+            <div class="field"><div class="label-row"><label for="date">日付</label><button class="text-clear" type="button" data-clear-target="date">クリア</button></div><input type="date" id="date" name="date" required><div id="date-error" class="error-message">過去の日は登録できません。今日以降の日付を選択してください。</div></div>
+            <div class="field"><div class="label-row"><label for="content">メモ内容</label><button class="text-clear" type="button" data-clear-target="content">クリア</button></div><div class="content-textarea-wrap"><textarea id="content" name="content" required placeholder="メモの内容を入力..."></textarea><div id="content-count" class="character-count" aria-live="polite">0文字</div></div><div class="voice-tools"><button class="btn btn-secondary voice-button" id="memo-voice-button" type="button">🎙 音声で入力</button><select class="voice-select" id="memo-voice-language" aria-label="音声の言語"><option value="ja-JP">日本語</option><option value="zh-CN">中文（普通话）</option></select><span class="voice-status" id="memo-voice-status" aria-live="polite">音声認識の文字はメモ内容に直接入力されます</span></div></div>
+            <div class="button-row"><button type="submit" class="btn btn-primary" id="submit-btn">メモを登録する →</button><a class="btn btn-secondary" href="/list">一覧へ戻る</a><button class="btn btn-ai" id="open-ai-popup" type="button">✦ AIで整理する</button></div>
+        </form>
+    </main>
+
+    
+    <dialog class="api-key-dialog ai-organizer-dialog" id="ai-organizer-dialog"><div class="ai-organizer"><div class="dialog-heading"><div><h2>AIでメモを整理</h2><p>入力内容からタイトル・日付・メモ内容を作成します。</p></div><button class="dialog-close" id="close-ai-popup" type="button" aria-label="閉じる">×</button></div><div class="field"><div class="label-row"><label for="ai-organizer-input">入力内容</label><button class="text-clear" type="button" data-clear-target="ai-organizer-input">クリア</button></div><div class="content-textarea-wrap"><textarea id="ai-organizer-input" placeholder="ここに内容を入力するか、音声で入力してください"></textarea><div id="ai-organizer-count" class="character-count" aria-live="polite">0文字</div></div><div class="voice-tools"><button class="btn btn-secondary voice-button" id="ai-voice-button" type="button">🎙 音声で入力</button><select class="voice-select" id="ai-voice-language" aria-label="音声の言語"><option value="ja-JP">日本語</option><option value="zh-CN">中文（普通话）</option></select><span class="voice-status" id="ai-voice-status" aria-live="polite"></span></div></div><p class="form-note" id="ai-organizer-status" aria-live="polite"></p><div class="button-row"><button class="btn btn-primary" id="run-ai-organizer" type="button">✦ AIで整理する</button><button class="btn btn-secondary" id="close-ai-popup-secondary" type="button">閉じる</button></div></div></dialog>
+    <footer class="site-footer">2026張毅の自由課題</footer>
+    <script src="{{ url_for('static', filename='voice-note.js') }}"></script>
+<script src="{{ url_for('static', filename='ui-preferences.js') }}"></script></body>
+</html>
