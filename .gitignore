@@ -1,0 +1,12 @@
+.env
+.venv/
+.venv-*/
+flask_env/
+instance/
+memo_app/memo.db
+memo_app/__pycache__/
+memo.db
+__pycache__/
+memo_app_github.zip
+*.log
+*.pid

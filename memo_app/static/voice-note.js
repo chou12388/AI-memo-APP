@@ -22,10 +22,10 @@
     const aiDraftKey = 'memo-garden-ai-organizer-draft';
     let memoRecognition, aiRecognition, memoListening = false, aiListening = false, aiAbortController;
     const aiModels = {
-        gemini: [['gemini-3.6-flash', 'Gemini 3.6 Flash（無料枠あり）'], ['gemini-3.5-flash', 'Gemini 3.5 Flash（無料枠あり）'], ['gemini-3.5-flash-lite', 'Gemini 3.5 Flash-Lite（無料枠あり）'], ['gemini-2.5-flash', 'Gemini 2.5 Flash（無料枠あり）'], ['gemini-2.5-pro', 'Gemini 2.5 Pro（有料）']],
-        openai: [['gpt-5.6-sol', 'GPT-5.6 Sol（有料）'], ['gpt-5.6-terra', 'GPT-5.6 Terra（有料）'], ['gpt-5.6-luna', 'GPT-5.6 Luna（有料）'], ['gpt-5.4-mini', 'GPT-5.4 mini（有料）'], ['gpt-5.4-nano', 'GPT-5.4 nano（有料）']],
+        gemini: [['gemini-2.5-flash', 'Gemini 2.5 Flash（無料枠あり）'], ['gemini-2.5-flash-lite', 'Gemini 2.5 Flash-Lite（無料枠あり）'], ['gemini-2.5-pro', 'Gemini 2.5 Pro（有料）']],
+        openai: [['gpt-5-mini', 'GPT-5 mini（有料）'], ['gpt-5', 'GPT-5（有料）']],
         openrouter: [['openrouter/free', 'OpenRouter Free Router（無料）']],
-        anthropic: [['claude-fable-5', 'Claude Fable 5（有料）'], ['claude-opus-5', 'Claude Opus 5（有料）'], ['claude-sonnet-5', 'Claude Sonnet 5（有料）'], ['claude-haiku-4-5-20251001', 'Claude Haiku 4.5（有料）']]
+        anthropic: [['claude-sonnet-4-20250514', 'Claude Sonnet 4（有料）'], ['claude-haiku-4-5-20251001', 'Claude Haiku 4.5（有料）']]
     };
     const settingsNotes = { gemini: 'Google の生成AIサービスです。無料 API 枠には回数・速度・日次の制限があります。', openai: 'OpenAI の生成AIサービスです。API の利用には残高が必要です。', openrouter: '複数の AI モデルをまとめて使えるサービスです。無料枠はテスト向けで、回数制限があります。', anthropic: 'Anthropic の生成AIサービスです。API の利用には残高が必要です。' };
     const settingsDialog = document.createElement('dialog');
